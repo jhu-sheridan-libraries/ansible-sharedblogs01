@@ -1,0 +1,37 @@
+php_packages:
+  - php-mysql
+  - php-curl
+  - php-libxml
+
+
+wordpress_home: /opt/wordpress
+wordpress_url: sharedblogs.dev.mse.jhu.edu
+wordpress_user: admin
+wordpress_email: derek+test@gmail.com
+wordpress_title: Johns Hopkins University Sheridan Libraries Shared Blogs
+wordpress_admin_password: "{{ vault_wordpress_user_password }}"
+
+wordpress_plugins:
+  - multiple-domain-mapping-on-single-site
+
+wordpress_database_user: "{{ mysql_user }}"
+wordpress_database_user_password: "{{ mysql_user_password }}"
+wordpress_database_host: mysql.mse.jhu.edu
+wordpress_database: "{{ mysql_database }}"
+
+acls:
+  - {
+      name: ops,
+      type: user,
+      permissions: rwx
+    }
+  - {
+      name: msel-libraryapplications,
+      type: group,
+      permissions: rwx
+    }
+  - {
+      name: msel-operations,
+      type: group,
+      permissions: rwx
+    }

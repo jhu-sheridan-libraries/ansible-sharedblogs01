@@ -1,0 +1,11 @@
+- src: https://github.com/jhu-sheridan-libraries/ansible-role-apachehttpd
+  name: jhu_apachehttpd
+
+- src: https://github.com/jhu-sheridan-libraries/ansible-role-php
+  name: jhu_php
+
+- src: https://github.com/jhu-sheridan-libraries/ansible-role-ssl
+  name: jhu_ssl
+
+- src: https://github.com/jhu-sheridan-libraries/ansible-role-wordpress
+  name: jhu_wordpress

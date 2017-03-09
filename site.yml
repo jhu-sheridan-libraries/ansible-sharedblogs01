@@ -1,0 +1,23 @@
+- hosts: databases
+  tasks:
+    - name: Create database for {{ mysql_database }}
+      mysql_db:
+        name: "{{ mysql_database }}"
+        state: present
+
+    - name: Create user {{ mysql_user }}
+      mysql_user:
+        name: "{{ mysql_user }}"
+        state: present
+        host: "%"
+        password: "{{ mysql_user_password }}"
+        priv: "{{mysql_database}}.*:ALL"
+
+- hosts: webservers
+  tasks:
+  roles:
+    - jhu_ssl
+    - jhu_apachehttpd
+    - jhu_php
+    - jhu_wordpress
+
